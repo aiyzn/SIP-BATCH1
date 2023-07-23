@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300&family=Raleway:wght@400;700&family=VT323&display=swap');
+/*font-family: 'Jost', sans-serif;
+font-family: 'Raleway', sans-serif;
+font-family: 'VT323', monospace;*/
+
+body, html {
+    height: 100%;
+    scroll-behavior: smooth;
+    background-color: black;
+}
+
+nav{
+  text-align: left;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 120%;
+  background-color: white;
+  color: black;
+  width: auto;
+  top: 0px;
+  padding: 1px;
+}
+
+/*nav pseudo styles*/
+a{
+  text-decoration: none;
+}
+
+a:link {
+  color: black;
+}
+
+a:visited {
+  color: black;
+}
+
+a:hover {
+  color: #E9EDC9;
+}
+
+a:active {
+  color: #FEFAE0;
+}
+
+header{
+  opacity: 70%;
+  background-image: url(placeholder1.jpeg);
+  color: white;
+  text-align: center;
+  padding: 5%;
+  font-family: 'Raleway', sans-serif;
+}
+
+footer{
+  color: white;
+  font-family: 'Raleway', sans-serif;
+}
+
+/*sub-section styles*/
+#home{
+  /*background-color: #E9EDC9;*/
+  color: white;
+  padding: 5%;
+  text-align: justify;
+  width: auto;
+  height: auto;
+}
+
+#article{
+ /*background-color: #FEFAE0;*/
+ color: white;
+ padding: 5%;
+ text-align: justify;
+}
+
+#comics{
+ /*background-color: #CCD5AE;*/
+ color: white;
+ padding: 5%;
+ text-align: justify;
+
+}
+
+#help{
+ /*background-color: #6E8773;*/
+ color: white;
+ padding: 5%;
+ text-align: justify;
+
+}
+
+/*styles per class*/
+.fit{
+   max-width: 100%; 
+   width: auto;
+   height: auto;
+   display: inline-block;
+}
+
+.font-gen{
+  font-size: 120%;
+  font-family: 'Jost', sans-serif;
+}
+
+.font-kid{
+  font-size: 150%;
+  font-family: 'VT323', monospace;
+}
+
+.sticky{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+}
+
+.fixed{
+  position: fixed;
+  height: auto;
+  width: auto;
+  padding: 5%;
+  background-color: white;
+  float: right;
+}
+
+.overflow{
+  max-width: 300px;
+  max-height: 300px;
+  padding: 3%;
+  overflow: scroll;
+  display: inline-block;
+  background-color: lavander;
+}
+
+/*animation*/
+@keyframes example {
+  0%   {background-color: red;}
+  25%  {background-color: yellow;}
+  50%  {background-color: blue;}
+  100% {background-color: green;}
+}
+
+.animate{
+ animation-name: example;
+ animation-duration: 4s;
+ animation-iteration-count: infinite;
+}
