@@ -10,15 +10,15 @@ body, html {
 }
 
 nav{
-  text-align: left;
+  text-align: center;
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
-  font-size: 120%;
-  background-color: white;
-  color: black;
+  font-size: 100%;
+  background-color:black;
+  color: white;
   width: auto;
   top: 0px;
-  padding: 1px;
+  padding: 10px;
 }
 
 /*nav pseudo styles*/
@@ -27,28 +27,64 @@ a{
 }
 
 a:link {
-  color: black;
+  color: white;
 }
 
 a:visited {
-  color: black;
+  color: white;
 }
 
 a:hover {
   color: #800080;
+  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
 }
 
 a:active {
   color: #800080;
+  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+}
+
+/*nav list styles*/
+ul{
+  list-style-type: none;
+  width: auto;
+}
+
+li{
+  display: inline-block;
+  width: 200px;
+  max-width: 300px;
 }
 
 header{
   opacity: 70%;
-  background-image: url(placeholder1.jpeg);
+  /*background-image: url(placeholder1.jpeg);*/
   color: white;
-  text-align: center;
-  padding: 5%;
+  text-align: right;
+  padding: 1%;
   font-family: 'Raleway', sans-serif;
+}
+
+.justify{
+  text-align: justify;
+  width: auto;
+  height: auto;
+  max-width: 600px;
+  max-height: 600px;
+  padding: 2em;
+  float: right;
+}
+
+/*parallax*/
+.parallax{ 
+  background-image: url("placeholder1.jpeg");
+  min-height: 500px; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 footer{
@@ -58,7 +94,6 @@ footer{
 
 /*sub-section styles*/
 #home{
-  /*background-color: #E9EDC9;*/
   color: white;
   padding: 5%;
   text-align: justify;
@@ -66,23 +101,20 @@ footer{
   height: auto;
 }
 
-#article{
- /*background-color: #FEFAE0;*/
+#info{
  color: white;
  padding: 5%;
  text-align: justify;
 }
 
-#comics{
- /*background-color: #CCD5AE;*/
+#story{
  color: white;
  padding: 5%;
  text-align: justify;
 
 }
 
-#help{
- /*background-color: #6E8773;*/
+#game{
  color: white;
  padding: 5%;
  text-align: justify;
@@ -102,45 +134,52 @@ footer{
   font-family: 'Jost', sans-serif;
 }
 
-.font-kid{
-  font-size: 150%;
-  font-family: 'VT323', monospace;
-}
-
 .sticky{
   position: -webkit-sticky;
   position: sticky;
   top: 0px;
 }
 
-.fixed{
-  position: fixed;
-  height: auto;
-  width: auto;
-  padding: 5%;
-  background-color: white;
-  float: right;
+.padding{
+  padding: 2em;
+  padding-bottom: 0;
+  font-size: 200%;
+  font-weight: 700;
 }
 
 .overflow{
-  max-width: 300px;
-  max-height: 300px;
+  max-width: 600px;
+  max-height: 400px;
   padding: 3%;
   overflow: scroll;
   display: inline-block;
-  background-color: lavander;
 }
 
-/*animation*/
-@keyframes example {
-  0%   {background-color: red;}
-  25%  {background-color: yellow;}
-  50%  {background-color: blue;}
-  100% {background-color: green;}
+.overview-overflow{
+  max-width: 400px;
+  max-height: 400px;
+  padding: 5%;
+  overflow: scroll;
+  text-align: justify;
+  float: right;
+  margin: auto;
 }
 
-.animate{
- animation-name: example;
- animation-duration: 4s;
- animation-iteration-count: infinite;
+.logo{
+  max-width: 50px;
+  max-height: 50px;
+  width: auto;
+  height: auto;
+  display: inline-block;
+  float: left;
+  margin: auto;
+  padding-left: 2em;
+  padding-bottom: 2 em;
+  position: relative; 
+  top: -18px;
+}
+
+/*pseudo codes*/
+p::first-letter {
+  font-size: 200%;
 }
