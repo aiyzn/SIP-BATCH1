@@ -59,28 +59,19 @@ li{
 }
 
 header{
-  opacity: 70%;
-  /*background-image: url(placeholder1.jpeg);*/
   color: white;
   text-align: right;
   padding: 1%;
-  font-family: 'Raleway', sans-serif;
-}
-
-.justify{
-  text-align: justify;
-  width: auto;
-  height: auto;
-  max-width: 600px;
-  max-height: 600px;
-  padding: 2em;
-  float: right;
+  
 }
 
 /*parallax*/
-.parallax{ 
+#parallax{ 
   background-image: url("placeholder1.jpeg");
-  min-height: 500px; 
+  height: auto; 
+  width: auto;
+  min-height: 500px;
+  padding: 5%;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -90,6 +81,10 @@ header{
 footer{
   color: white;
   font-family: 'Raleway', sans-serif;
+  height: auto; 
+  width: auto;
+  min-height: 300px;
+  padding: 5%;
 }
 
 /*sub-section styles*/
@@ -126,17 +121,75 @@ footer{
    max-width: 100%; 
    width: auto;
    height: auto;
+   float: left;
+   padding: 1%;
+}
+
+.fit-b{
+   max-width: 100%; 
+   width: auto;
+   height: auto;
+   display: block;
+   float: left;
+   padding: 1%;
+}
+
+.fit-right{
+   max-width: 100%; 
+   width: auto;
+   height: auto;
+   float: right;
+   padding: 1%;
+}
+
+.fit-center{
+   max-width: 100%; 
+   width: auto;
+   height: auto;
+   text-align: center;
+   padding: 1%;
+   margin-left: auto;
+   margin-right: auto;
+} 
+
+.fit-nop{
+   max-width: 100%; 
+   width: auto;
+   height: auto;
+   float: left;
+   padding: 0;
+   left: 0;
+}
+
+.fit-nop-b{
+   max-width: 100%; 
+   width: auto;
+   height: auto;
+   float: left;
+   padding: 20px;
+   left: 0;
+}
+
+.fit-nop-r{
+   max-width: 100%; 
+   width: auto;
+   height: auto;
    display: inline-block;
+   float: right;
+   padding: 0;
+   right: 0;
 }
 
 .font-gen{
   font-size: 120%;
   font-family: 'Jost', sans-serif;
+  color: white;
 }
 
 .sticky{
   position: -webkit-sticky;
   position: sticky;
+  padding: 2%;
   top: 0px;
 }
 
@@ -145,6 +198,7 @@ footer{
   padding-bottom: 0;
   font-size: 200%;
   font-weight: 700;
+  font-family: 'Jost', sans-serif;
 }
 
 .overflow{
@@ -155,14 +209,15 @@ footer{
   display: inline-block;
 }
 
-.overview-overflow{
-  max-width: 400px;
-  max-height: 400px;
+#overview-overflow{
+  max-width: 500px;
+  max-height: 300px;
   padding: 5%;
   overflow: scroll;
   text-align: justify;
   float: right;
   margin: auto;
+  font-family: 'Jost', sans-serif;
 }
 
 .logo{
@@ -176,7 +231,35 @@ footer{
   padding-left: 2em;
   padding-bottom: 2 em;
   position: relative; 
-  top: -18px;
+  top: -6px;
+}
+
+.justify{
+  text-align: justify;
+  width: auto;
+  height: auto;
+  max-width: 600px;
+  max-height: 600px;
+  padding: 2em;
+  float: right;
+}
+
+.center{
+  text-align: center;
+  width: auto;
+  height: auto;
+  max-width: 600px;
+  max-height: 600px;
+  padding: 2em;
+  color: white;
+  font-family: 'Jost', sans-serif;
+}
+
+.bold{
+  font-size: 275%;
+  font-weight: 700;
+  font-family: 'Jost', sans-serif;
+  color: white;
 }
 
 /*pseudo codes*/
