@@ -9,6 +9,15 @@ body, html {
     background-color: black;
 }
 
+.bg{
+  background-image:url('assets_1/bg.png'); 
+  min-width: 1080px;
+  max-height: 800px;
+  height: auto;
+  width: auto;
+  padding-right: 2%;
+}
+
 nav{
   text-align: center;
   font-family: 'Raleway', sans-serif;
@@ -20,6 +29,7 @@ nav{
   top: 0px;
   padding: 10px;
 }
+
 
 /*nav pseudo styles*/
 a{
@@ -49,13 +59,16 @@ a:active {
 /*nav list styles*/
 ul{
   list-style-type: none;
-  width: auto;
+  width: auto;  
+  font-family: 'Raleway', sans-serif;
 }
 
 li{
   display: inline-block;
-  width: 200px;
-  max-width: 300px;
+  width: 100px;
+  max-width: 200px;
+  padding-right: 2%;
+  font-family: 'Raleway', sans-serif;
 }
 
 header{
@@ -65,19 +78,6 @@ header{
   
 }
 
-/*parallax*/
-#parallax{ 
-  background-image: url("placeholder1.jpeg");
-  height: auto; 
-  width: auto;
-  min-height: 500px;
-  padding: 5%;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 footer{
   color: white;
   font-family: 'Raleway', sans-serif;
@@ -85,6 +85,41 @@ footer{
   width: auto;
   min-height: 300px;
   padding: 5%;
+  background-repeat: no-repeat;
+  bottom: 0;
+}
+
+section{
+  display: inline-block;
+}
+
+embed{
+  margin: auto;
+  height: auto;
+  width: auto;
+  min-width: 700px;
+  min-height: 400px;
+}
+
+.names{
+  height: auto;
+  width: auto;
+  max-width: 900px;
+  padding:auto;
+  bottom: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.PAT{
+  height: auto;
+  width: auto;
+  max-width: 300px;
+  max-height: 300px;
+  padding:auto;
+  float: left;
+  display: block;
 }
 
 /*sub-section styles*/
@@ -118,11 +153,12 @@ footer{
 
 /*styles per class*/
 .fit{
-   max-width: 100%; 
+   max-width: 40%; 
    width: auto;
    height: auto;
    float: left;
-   padding: 1%;
+   padding: 3%;
+   display: block;
 }
 
 .fit-b{
@@ -140,6 +176,7 @@ footer{
    height: auto;
    float: right;
    padding: 1%;
+   display: block;
 }
 
 .fit-center{
@@ -194,7 +231,6 @@ footer{
 }
 
 .padding{
-  padding: 2em;
   padding-bottom: 0;
   font-size: 200%;
   font-weight: 700;
@@ -220,15 +256,23 @@ footer{
   font-family: 'Jost', sans-serif;
 }
 
+.overflow-s{
+  max-width: 300px;
+  max-height: 400px;
+  padding: 1%;
+  overflow: scroll;
+  display: inline-block;
+}
+
 .logo{
-  max-width: 50px;
-  max-height: 50px;
+  max-width: 55px;
+  max-height: 55px;
   width: auto;
   height: auto;
   display: inline-block;
   float: left;
   margin: auto;
-  padding-left: 2em;
+  padding-left: 3em;
   padding-bottom: 2 em;
   position: relative; 
   top: -6px;
@@ -262,7 +306,23 @@ footer{
   color: white;
 }
 
-/*pseudo codes*/
-p::first-letter {
-  font-size: 200%;
+.bold-p{
+  font-size: 100%;
+  font-weight: 700;
+  font-family: 'Jost', sans-serif;
+  color: white;
 }
+
+.help{
+  color: white;
+  font-family: 'Jost', sans-serif;
+  height: auto; 
+  width: auto;
+  min-height: 300px;
+  padding: 5%;
+}
+
+/*pseudo codes*/
+/*p::first-letter {
+  font-size: 200%;
+}*/
