@@ -1,6 +1,6 @@
 var blockSize = 17;
-var total_row = 30; //total row number
-var total_col = 30; //total column number
+var total_row = 27; //total row number
+var total_col = 48; //total column number
 var board;
 var context;
 
@@ -164,26 +164,29 @@ function update() {
 
 // Movement of the Snake - We are using addEventListener
 function changeDirection(e) {
-	if (e.code == "ArrowUp" && speedY != 1) {
-		// If up arrow key pressed with this condition...
-		// snake will not move in the opposite direction
-		speedX = 0;
-		speedY = -1;
+	if (e.key == "W" || e.key == "w") {
+		if (speedY != 1){
+			speedX = 0;
+			speedY = -1;
+		}
 	}
-	else if (e.code == "ArrowDown" && speedY != -1) {
-		//If down arrow key pressed
-		speedX = 0;
-		speedY = 1;
+	else if (e.key == "S" || e.key == "s") {
+		if (speedY != -1){
+			speedX = 0;
+			speedY = 1;
+		}
 	}
-	else if (e.code == "ArrowLeft" && speedX != 1) {
-		//If left arrow key pressed
-		speedX = -1;
-		speedY = 0;
+	else if (e.key == "A" || e.key == "a") {
+		if (speedX != 1){
+			speedX = -1;
+			speedY = 0;
+		}
 	}
-	else if (e.code == "ArrowRight" && speedX != -1) {
-		//If Right arrow key pressed
-		speedX = 1;
-		speedY = 0;
+	else if (e.key == "D" || e.key == "d") {
+		if (speedX != -1){
+			speedX = 1;
+			speedY = 0;
+		}
 	}
 }
 
