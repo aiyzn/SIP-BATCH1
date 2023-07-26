@@ -93,6 +93,10 @@ section{
   display: inline-block;
 }
 
+article{
+  display: inline-block;
+}
+
 embed{
   margin: auto;
   height: auto;
