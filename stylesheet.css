@@ -9,15 +9,6 @@ body, html {
     background-color: black;
 }
 
-.bg{
-  background-image:url('assets_1/bg.png'); 
-  min-width: 1080px;
-  max-height: 800px;
-  height: auto;
-  width: auto;
-  padding-right: 2%;
-}
-
 nav{
   text-align: center;
   font-family: 'Raleway', sans-serif;
