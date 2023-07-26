@@ -1,6 +1,6 @@
-var blockSize = 20;
-var total_row = 24; //total row number
-var total_col = 24; //total column number
+var blockSize = 17;
+var total_row = 30; //total row number
+var total_col = 30; //total column number
 var board;
 var context;
 
@@ -13,13 +13,18 @@ var speedY = 0; //speed of snake in Y coordinate.
 
 var snakeBody = [];
 
-var color = ["yellow", "red", "blue"];
-var foodX = [0,0,0];
-var foodY = [0,0,0];
+var color = ["yellow","yellow","red","red","blue","blue","purple","purple","green","green"];
+var colorBG = "black";
+var colorSnake = "white";
+
+var foodX = [0,0,0,0,0,0,0,0,0,0];
+var foodY = [0,0,0,0,0,0,0,0,0,0];
 
 var delay = 1000;
 
 var gameOver = false;
+
+var k = 0;
 
 window.onload = function () {
 	// Set board height and width
@@ -28,9 +33,9 @@ window.onload = function () {
 	board.width = total_col * blockSize;
 	context = board.getContext("2d");
 
-	placeFood();
-	placeFast();
-	placeSlow();
+	for (k = 0; k < foodX.length; k++) {
+		placeFood(k);
+	}
 	
 	document.addEventListener("keyup", changeDirection); //for movements
 	// Set snake speed
@@ -38,44 +43,62 @@ window.onload = function () {
 }
 
 function update() {
-	if (gameOver) {
-		return;
-	}
-
 	// Background of a Game
-	context.fillStyle = "green";
+	context.fillStyle = colorBG;
 	context.fillRect(0, 0, board.width, board.height);
 	
-	for (let k = 0; k < foodX.length; k++) {
+	for (k = 0; k < foodX.length; k++) {
 		// Set food color and position
 		context.fillStyle = color[k];
 		context.fillRect(foodX[k], foodY[k], blockSize, blockSize);
-
+		
 		if (snakeX == foodX[k] && snakeY == foodY[k]) {
 			snakeBody.push([foodX[k], foodY[k]]);
 			
 			switch (k){
-				case 0:
-					delay = 1000;
-					placeFood();
+				case 0: case 1:
+					placeFood(k);
+					colorSnake = "yellow";
 					break;
-				case 1:
+				case 2: case 3:
 					if (delay > 500){
 						delay-=500;
 					}
-					placeFast();
+					placeFood(k);
+					colorSnake = "red";
 					break;
-				case 2:
+				case 4: case 5:
 					if (delay < 1500){
 						delay+=500;
 					}
-					placeSlow();
+					placeFood(k);
+					colorSnake = "blue";
+					break;
+				case 6: case 7:
+					for (k = 0; k < foodX.length; k++) {
+						placeFood(k);
+					}
+					colorSnake = "purple";
+					break;
+				case 8: case 9:
+					if (colorBG == "black"){
+						colorBG = "white";
+						colorSnake = "green";
+						
+						for (k = 0; k < foodX.length-1; k++) {
+							color[k] = "green";
+						}
+					}
+					else {
+						colorBG = "black";
+						colorSnake = "green";
+						color = ["yellow","yellow","red","red","blue","blue","purple","purple","green","green"];
+					}
+					placeFood(k);
 					break;
 			}
 		}
 	}
-	
-	
 
 	// body of snake will grow
 	for (let i = snakeBody.length - 1; i > 0; i--) {
@@ -86,7 +109,7 @@ function update() {
 		snakeBody[0] = [snakeX, snakeY];
 	}
 
-	context.fillStyle = "white";
+	context.fillStyle = colorSnake;
 	snakeX += speedX * blockSize; //updating Snake position in X coordinate.
 	snakeY += speedY * blockSize; //updating Snake position in Y coordinate.
 	context.fillRect(snakeX, snakeY, blockSize, blockSize);
@@ -101,7 +124,6 @@ function update() {
 		
 		// Out of bound condition
 		gameOver = true;
-		alert("Game Over");
 	}
 
 	for (let i = 0; i < snakeBody.length; i++) {
@@ -109,11 +131,36 @@ function update() {
 			
 			// Snake eats own body
 			gameOver = true;
-			alert("Game Over");
 		}
+	}
+	if (gameOver != false) {
+		colorSnake = "white";
+		
+		alert("Game over. Try again?")
+			
+		snakeX = blockSize * 5;
+		snakeY = blockSize * 5;
+		
+		speedX = 0;
+		speedY = 0;
+		
+		color = ["yellow","yellow","red","red","blue","blue","purple","purple","green","green"];
+		colorBG = "black";
+		
+		snakeBody = [];
+		
+		for (k = 0; k < foodX.length; k++) {
+			placeFood(k);
+		}
+		
+		delay = 1000;
+		
+		gameOver = false;
 	}
 	setTimeout(update, delay/10);
 }
+
+
 
 // Movement of the Snake - We are using addEventListener
 function changeDirection(e) {
@@ -141,29 +188,11 @@ function changeDirection(e) {
 }
 
 // Randomly place food
-function placeFood() {
+function placeFood(k) {
 
 	// in x coordinates.
-	foodX[0] = Math.floor(Math.random() * total_col) * blockSize;
+	foodX[k] = Math.floor(Math.random() * total_col) * blockSize;
 	
 	//in y coordinates.
-	foodY[0] = Math.floor(Math.random() * total_row) * blockSize;
-}
-
-function placeFast() {
-
-	// in x coordinates.
-	foodX[1] = Math.floor(Math.random() * total_col) * blockSize;
-	
-	//in y coordinates.
-	foodY[1] = Math.floor(Math.random() * total_row) * blockSize;
-}
-
-function placeSlow() {
-
-	// in x coordinates.
-	foodX[2] = Math.floor(Math.random() * total_col) * blockSize;
-	
-	//in y coordinates.
-	foodY[2] = Math.floor(Math.random() * total_row) * blockSize;
+	foodY[k] = Math.floor(Math.random() * total_row) * blockSize;
 }
