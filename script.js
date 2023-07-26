@@ -1,6 +1,6 @@
 var blockSize = 17;
 var total_row = 27; //total row number
-var total_col = 48; //total column number
+var total_col = 36; //total column number
 var board;
 var context;
 
@@ -14,8 +14,8 @@ var speedY = 0; //speed of snake in Y coordinate.
 var snakeBody = [];
 
 var color = ["yellow","yellow","red","red","blue","blue","purple","purple","green","green"];
-var colorBG = "black";
-var colorSnake = "white";
+var colorBG = "rgb(32,32,32)";
+var colorSnake = "rgb(223,223,223)";
 
 var foodX = [0,0,0,0,0,0,0,0,0,0];
 var foodY = [0,0,0,0,0,0,0,0,0,0];
@@ -58,40 +58,40 @@ function update() {
 			switch (k){
 				case 0: case 1:
 					placeFood(k);
-					colorSnake = "yellow";
+					colorSnake = "rgb(255, 255, 32)";
 					break;
 				case 2: case 3:
 					if (delay > 500){
 						delay-=500;
 					}
 					placeFood(k);
-					colorSnake = "red";
+					colorSnake = "rgb(255, 32, 32)";
 					break;
 				case 4: case 5:
 					if (delay < 1500){
 						delay+=500;
 					}
 					placeFood(k);
-					colorSnake = "blue";
+					colorSnake = "rgb(32, 32, 255)";
 					break;
 				case 6: case 7:
 					for (k = 0; k < foodX.length; k++) {
 						placeFood(k);
 					}
-					colorSnake = "purple";
+					colorSnake = "rgb(160, 32, 160)";
 					break;
 				case 8: case 9:
-					if (colorBG == "black"){
-						colorBG = "white";
-						colorSnake = "green";
+					if (colorBG == "rgb(32,32,32)"){
+						colorBG = "rgb(223,223,223)";
+						colorSnake = "rgb(32,160,32)";
 						
 						for (k = 0; k < foodX.length-1; k++) {
 							color[k] = "green";
 						}
 					}
 					else {
-						colorBG = "black";
-						colorSnake = "green";
+						colorBG = "rgb(32,32,32)";
+						colorSnake = "rgb(32,160,32)";
 						color = ["yellow","yellow","red","red","blue","blue","purple","purple","green","green"];
 					}
 					placeFood(k);
@@ -134,9 +134,9 @@ function update() {
 		}
 	}
 	if (gameOver != false) {
-		colorSnake = "white";
+		colorSnake = "rgb(223,223,223)";
 		
-		alert("Game over. Try again?")
+		alert("Score: "+ snakeBody.length + ". Try again?")
 			
 		snakeX = blockSize * 5;
 		snakeY = blockSize * 5;
@@ -145,7 +145,7 @@ function update() {
 		speedY = 0;
 		
 		color = ["yellow","yellow","red","red","blue","blue","purple","purple","green","green"];
-		colorBG = "black";
+		colorBG = "rgb(32,32,32)";
 		
 		snakeBody = [];
 		
