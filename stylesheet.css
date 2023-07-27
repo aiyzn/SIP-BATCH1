@@ -212,6 +212,13 @@ embed{
    right: 0;
 }
 
+#kimg{
+   width: 400px;
+   height: 600px;
+   text-align: center;
+   padding: 1%;
+} 
+
 .font-gen{
   font-size: 120%;
   font-family: 'Jost', sans-serif;
