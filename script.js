@@ -33,7 +33,7 @@ var gameOver = false;
 
 var highScore;
 
-localStorage.clear(highScore);
+//localStorage.clear(highScore);
 if (localStorage.getItem(highScore) == null) {
 	localStorage.setItem(highScore, "0");
 }
