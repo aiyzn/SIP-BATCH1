@@ -1,4 +1,4 @@
-var blockSize = 17;
+var blockSize = 15;
 var total_row = 27; //total row number
 var total_col = 36; //total column number
 var board;
@@ -13,9 +13,9 @@ var speedY = 0; //speed of snake in Y coordinate.
 
 var snakeBody = [];
 
-var color1 = ["red","red","red","blue","blue","blue","purple","purple","purple","green","green","green"];
-var food1X = [0,0,0,0,0,0,0,0,0,0,0,0];
-var food1Y = [0,0,0,0,0,0,0,0,0,0,0,0];
+var color1 = ["red","red","blue","blue","purple","purple","green","green"];
+var food1X = [0,0,0,0,0,0,0,0];
+var food1Y = [0,0,0,0,0,0,0,0];
 
 var color2 = ["darkorange","yellow","yellow","yellow","yellow"];
 var food2X = [0,0,0,0,0];
@@ -78,21 +78,21 @@ function update() {
 			snakeBody.push([food1X[k], food1Y[k]]);
 			
 			switch (k){
-				case 0: case 1: case 2:
+				case 0: case 1:
 					if (delay > 500){
 						delay-=500;
 					}
 					placeFood1(k);
 					colorSnake = "rgb(255, 32, 32)";
 					break;
-				case 3: case 4: case 5:
+				case 2: case 3:
 					if (delay < 1500){
 						delay+=500;
 					}
 					placeFood1(k);
 					colorSnake = "rgb(32, 32, 255)";
 					break;
-				case 6: case 7: case 8:
+				case 4: case 5:
 					placeFood1(k);
 					
 					let x = Math.floor(Math.random() * 11) + 1;
@@ -105,7 +105,7 @@ function update() {
 					}
 					colorSnake = "rgb(160, 32, 160)";
 					break;
-				case 9: case 10: case 11:
+				case 6: case 7:
 					placeFood1(k);
 					if (colorBG == "rgb(32,32,32)"){
 						colorBG = "rgb(223,223,223)";
@@ -212,7 +212,7 @@ function update() {
 		speedX = 0;
 		speedY = 0;
 		
-		color1 = ["red","red","red","blue","blue","blue","purple","purple","purple","green","green","green"];
+		color1 = ["red","red","blue","blue","purple","purple","green","green"];
 		color2 = ["orange","yellow","yellow","yellow","yellow"];
 		colorBG = "rgb(32,32,32)";
 		
