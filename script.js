@@ -136,10 +136,10 @@ function update() {
 		
 		if (snakeX == food2X[k] && snakeY == food2Y[k]) {
 			snakeBody.push([food2X[k], food2Y[k]]);
-			score++;
 			
 			switch (k){
 				case 0:
+					score+=5;
 					for (k = 0; k < food1X.length; k++) {
 						placeFood1(k);
 					}
@@ -149,6 +149,7 @@ function update() {
 					break;
 				case 1: case 2: case 3: case 4: case 5:
 					yellow++;
+					score++;
 					
 					food2X[k] = -1 * blockSize;
 					food2Y[k] = -1 * blockSize;
