@@ -33,7 +33,7 @@ var gameOver = false;
 
 var highScore;
 
-localStorage.clear(highScore);
+//localStorage.clear(highScore);
 if (localStorage.getItem(highScore) == null) {
 	localStorage.setItem(highScore, "0");
 }
@@ -237,6 +237,24 @@ function update() {
 		gameOver = false;
 	}
 	setTimeout(update, delay/10);
+}
+function buttonMovement() {
+	var ctrls = "AWSD";
+	var btns = [];
+	for (var i = 0; i < ctrls.length; i++) {
+		var btn = document.createElement("button");
+		btn.innerHTML = ctrls.charAt(i);
+		btn.style.cssText = 'width: 153px; height: 114.75px';
+		
+		btns.push(btn);
+		
+		btns[i].onclick = function() {
+			q = this.innerHTML;
+			changeDirection();
+		}
+		
+		document.getElementById("gamepad").appendChild(btns[i]);
+	}
 }
 function keyMovement(e) {
 	let w = e.key;
