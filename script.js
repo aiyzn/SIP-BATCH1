@@ -239,7 +239,7 @@ function update() {
 	setTimeout(update, delay/10);
 }
 function buttonMovement() {
-	var ctrls = "AWSD";
+	var ctrls = "AWDS";
 	var btns = [];
 	for (var i = 0; i < ctrls.length; i++) {
 		var btn = document.createElement("button");
