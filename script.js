@@ -17,9 +17,9 @@ var color1 = ["red","red","red","blue","blue","blue","purple","purple","purple",
 var food1X = [0,0,0,0,0,0,0,0,0,0,0,0];
 var food1Y = [0,0,0,0,0,0,0,0,0,0,0,0];
 
-var color2 = ["darkorange","yellow","yellow","yellow","yellow","yellow"];
-var food2X = [0,0,0,0,0,0];
-var food2Y = [0,0,0,0,0,0];
+var color2 = ["darkorange","yellow","yellow","yellow","yellow"];
+var food2X = [0,0,0,0,0];
+var food2Y = [0,0,0,0,0];
 
 var colorBG = "rgb(32,32,32)";
 var colorSnake = "rgb(223,223,223)";
@@ -33,12 +33,13 @@ var gameOver = false;
 
 var highScore;
 
-//localStorage.clear(highScore);
+localStorage.clear(highScore);
 if (localStorage.getItem(highScore) == null) {
 	localStorage.setItem(highScore, "0");
 }
 
 var k = 0;
+var q;
 
 window.onload = function () {
 	// Set board height and width
@@ -56,8 +57,10 @@ window.onload = function () {
 	food2X[0] = -1 * blockSize;
 	food2Y[0] = -1 * blockSize;
 	
-	document.addEventListener("keyup", changeDirection); //for movements
+	buttonMovement();
+	document.addEventListener("keyup", keyMovement); //for movements
 	// Set snake speed
+	
 	setTimeout(update, delay/10);
 }
 
@@ -90,14 +93,9 @@ function update() {
 					colorSnake = "rgb(32, 32, 255)";
 					break;
 				case 6: case 7: case 8:
-					for (k = 0; k < food1X.length; k++) {
-						placeFood1(k);
-					}
-					colorSnake = "rgb(160, 32, 160)";
-					break;
-				case 9: case 10: case 11:
 					placeFood1(k);
-					let x = Math.floor(Math.random() * 4) * 3;
+					
+					let x = Math.floor(Math.random() * 11) + 1;
 					for (k = 0; k < x; k++) {
 						food1X.push(food1X[0]);
 						food1X.shift();
@@ -105,7 +103,10 @@ function update() {
 						food1Y.push(food1Y[0]);
 						food1Y.shift();
 					}
-					
+					colorSnake = "rgb(160, 32, 160)";
+					break;
+				case 9: case 10: case 11:
+					placeFood1(k);
 					if (colorBG == "rgb(32,32,32)"){
 						colorBG = "rgb(223,223,223)";
 						colorSnake = "rgb(32,160,32)";
@@ -144,17 +145,16 @@ function update() {
 						placeFood1(k);
 					}
 					reset();
-					
 					colorSnake = "rgb(255, 197, 32)";
 					break;
-				case 1: case 2: case 3: case 4: case 5:
+				case 1: case 2: case 3: case 4:
 					yellow++;
 					score++;
 					
 					food2X[k] = -1 * blockSize;
 					food2Y[k] = -1 * blockSize;
 					
-					if (yellow == 5) {
+					if (yellow == 4) {
 						placeFood2(0);
 					}
 					
@@ -216,7 +216,7 @@ function update() {
 		speedY = 0;
 		
 		color1 = ["red","red","red","blue","blue","blue","purple","purple","purple","green","green","green"];
-		color2 = ["orange","yellow","yellow","yellow","yellow","yellow"];
+		color2 = ["orange","yellow","yellow","yellow","yellow"];
 		colorBG = "rgb(32,32,32)";
 		
 		snakeBody = [];
@@ -238,39 +238,75 @@ function update() {
 	}
 	setTimeout(update, delay/10);
 }
-
-// Movement of the Snake - We are using addEventListener
-function changeDirection(e) {
-	if (e.key == "W" || e.key == "w") {
-		if (speedY != 1){
-			speedX = 0;
-			speedY = -1;
+function buttonMovement() {
+	var ctrls = "AWSD";
+	var btns = [];
+	for (var i = 0; i < ctrls.length; i++) {
+		var btn = document.createElement("button");
+		btn.innerHTML = ctrls.charAt(i);
+		btn.style.cssText = 'width: 153px; height: 114.75px';
+		
+		btns.push(btn);
+		
+		btns[i].onclick = function() {
+			q = this.innerHTML;
+			changeDirection();
 		}
-	}
-	else if (e.key == "S" || e.key == "s") {
-		if (speedY != -1){
-			speedX = 0;
-			speedY = 1;
-		}
-	}
-	else if (e.key == "A" || e.key == "a") {
-		if (speedX != 1){
-			speedX = -1;
-			speedY = 0;
-		}
-	}
-	else if (e.key == "D" || e.key == "d") {
-		if (speedX != -1){
-			speedX = 1;
-			speedY = 0;
-		}
+		
+		document.getElementById("gamepad").appendChild(btns[i]);
 	}
 }
+function keyMovement(e) {
+	let w = e.key;
+	switch (w){
+		case "W": case "w":
+			q = "W";
+			break;
+		case "S": case "s":
+			q = "S";
+			break;
+		case "A": case "a":
+			q = "A";
+			break;
+		case "D": case "d":
+			q = "D";
+			break;
+	}
+	changeDirection();
+}
 
-function reset() {
+// Movement of the Snake - We are using addEventListener
+function changeDirection() {
+	switch (q){
+		case "W":
+			if (speedY != 1){
+				speedX = 0;
+				speedY = -1;
+			}
+			break;
+		case "S":
+			if (speedY != -1){
+				speedX = 0;
+				speedY = 1;
+			}
+			break;
+		case "A":
+			if (speedX != 1){
+				speedX = -1;
+				speedY = 0;
+			}
+			break;
+		case "D":
+			if (speedX != -1){
+				speedX = 1;
+				speedY = 0;
+			}
+			break;
+	}
+}
+function reset(){
 	food2X[0] = -1 * blockSize;
 	food2Y[0] = -1 * blockSize;
-
 	for (k = 1; k < food2X.length; k++) {
 		placeFood2(k);
 	}
