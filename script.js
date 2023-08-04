@@ -244,7 +244,7 @@ function buttonMovement() {
 	for (var i = 0; i < ctrls.length; i++) {
 		var btn = document.createElement("button");
 		btn.innerHTML = ctrls.charAt(i);
-		btn.style.cssText = 'width: 153px; height: 114.75px';
+		btn.style.cssText = 'width: 140px; height: 115px';
 		
 		btns.push(btn);
 		
