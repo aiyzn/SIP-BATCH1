@@ -141,9 +141,6 @@ function update() {
 			switch (k){
 				case 0:
 					score+=5;
-					for (k = 0; k < food1X.length; k++) {
-						placeFood1(k);
-					}
 					reset();
 					colorSnake = "rgb(255, 197, 32)";
 					break;
