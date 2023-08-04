@@ -122,7 +122,7 @@ function update() {
 						colorBG = "rgb(32,32,32)";
 						colorSnake = "rgb(32,160,32)";
 						color1 = ["red","red","red","blue","blue","blue","purple","purple","purple","green","green","green"];
-						color2 = ["orange","yellow","yellow","yellow","yellow","yellow"];
+						color2 = ["orange","yellow","yellow","yellow","yellow"];
 					}
 					break;
 			}
@@ -237,24 +237,6 @@ function update() {
 		gameOver = false;
 	}
 	setTimeout(update, delay/10);
-}
-function buttonMovement() {
-	var ctrls = "AWSD";
-	var btns = [];
-	for (var i = 0; i < ctrls.length; i++) {
-		var btn = document.createElement("button");
-		btn.innerHTML = ctrls.charAt(i);
-		btn.style.cssText = 'width: 153px; height: 114.75px';
-		
-		btns.push(btn);
-		
-		btns[i].onclick = function() {
-			q = this.innerHTML;
-			changeDirection();
-		}
-		
-		document.getElementById("gamepad").appendChild(btns[i]);
-	}
 }
 function keyMovement(e) {
 	let w = e.key;
