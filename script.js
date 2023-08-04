@@ -121,7 +121,7 @@ function update() {
 					else {
 						colorBG = "rgb(32,32,32)";
 						colorSnake = "rgb(32,160,32)";
-						color1 = ["red","red","red","blue","blue","blue","purple","purple","purple","green","green","green"];
+						color1 = ["red","red","blue","blue","purple","purple","green","green"];
 						color2 = ["orange","yellow","yellow","yellow","yellow"];
 					}
 					break;
